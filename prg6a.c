@@ -81,7 +81,7 @@ void display(){
 
 int main(){
 	int choice;
-	while (choice>0){
+	while (1){
 		printf("\n1.PUSH\n2.DISPLAY\n3.POP\n4.EXIT\n");
 		printf("Enter your choice : \n");
 		scanf("%d", &choice);
