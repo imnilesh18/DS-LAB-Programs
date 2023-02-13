@@ -123,7 +123,7 @@ struct node *delete_in_between(struct node *start){
 }
 
 struct node *counting(struct node *start){
-	int count;
+	int count = 0;
 	struct node *ptr;
 	ptr = start;
 	while(ptr!=NULL){
