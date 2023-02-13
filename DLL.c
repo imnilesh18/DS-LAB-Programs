@@ -118,7 +118,7 @@ struct node *delete_in_between(struct node *start){
 	temp = ptr -> next;
 	ptr -> next = temp -> next;
 	temp -> next -> prev = ptr;
-	free(ptr);
+	free(temp);
 	return start;
 }
 
