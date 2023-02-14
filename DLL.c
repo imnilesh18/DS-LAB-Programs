@@ -58,7 +58,6 @@ struct node *insert_beginning(struct node *start){
 }
 
 
-
 struct node *insert_end(struct node *start){
 	struct node *ptr, *new_node;
 	int ele;
@@ -99,6 +98,7 @@ struct node *insert_in_between(struct node *start){
 	return start;
 }
 
+
 struct node *delete_beginning(struct node *start){
 	struct node *ptr;
 	ptr = start;
@@ -108,17 +108,19 @@ struct node *delete_beginning(struct node *start){
 	return start;
 }
 
+
 struct node *delete_end(struct node *start){
 	struct node *ptr, *preptr;
 	ptr = start;
-    while(ptr -> next != NULL){
-        preptr = ptr;
-        ptr = ptr->next;
+    	while(ptr -> next != NULL){
+        	preptr = ptr;
+        	ptr = ptr->next;
     }
-	preptr->next= NULL;
+	preptr -> next = NULL;
    	free(ptr);
 	return start;
 }
+
 
 struct node *delete_in_between(struct node *start){
 	int val;	
@@ -136,6 +138,7 @@ struct node *delete_in_between(struct node *start){
 	return start;
 }
 
+
 struct node *counting(struct node *start){
 	int count = 0;
 	struct node *ptr;
@@ -148,6 +151,7 @@ struct node *counting(struct node *start){
 return start;
 }
 
+
 struct node *display(struct node *start){
 	struct node *ptr;
 	ptr = start;
@@ -157,6 +161,7 @@ struct node *display(struct node *start){
 	}
 	return start;
 }
+
 
 int main(){
 	int choice;
@@ -175,8 +180,8 @@ int main(){
 			break;
 		case 5: start = delete_beginning(start);
 			break;
-        case 6: start = delete_end(start);
-            break;
+        	case 6: start = delete_end(start);
+            		break;
 		case 7: start = delete_in_between(start);
 			break;
 		case 8: start = counting(start);
@@ -186,7 +191,7 @@ int main(){
 		case 10: exit(0);
 			break;
 		
-        }
+        	}
 
 	}
 	return 0;
