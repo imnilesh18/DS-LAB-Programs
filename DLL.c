@@ -27,11 +27,12 @@ struct node *create_dll(struct node *start){
 		}
 		else{
 			ptr = start;
-			while(ptr -> next!= NULL)
+			while(ptr -> next!= NULL){
 				ptr = ptr -> next;
-				ptr -> next = new_node;
-				new_node -> prev = ptr;
-				new_node -> next = NULL;
+			}	
+			ptr -> next = new_node;
+			new_node -> prev = ptr;
+			new_node -> next = NULL;
 		}
 	printf("Enter the element : \n");
 	scanf("%d", &ele);
@@ -78,7 +79,7 @@ struct node *insert_end(struct node *start){
 
 struct node *insert_in_between(struct node *start){
 	int ele,val;	
-	struct node *new_node, *ptr, *temp;
+	struct node *new_node, *ptr, *preptr;
 	printf("Enter the element : \n");
 	scanf("%d", &ele);
 	new_node = (struct node*)malloc(sizeof(struct node));
@@ -86,14 +87,15 @@ struct node *insert_in_between(struct node *start){
 	ptr = start;
 	printf("After which value: ");
 	scanf("%d", &val);
-	while(ptr -> data!=val){
+	while(preptr -> data!=val){
+        preptr = ptr;
 		ptr = ptr->next;
 	}
-	temp = ptr -> next;
-	new_node -> prev = ptr;
-	new_node -> next = temp;
-	ptr ->next = new_node;
-	temp -> prev = new_node;
+	preptr -> next =new_node;
+	new_node -> prev = preptr;
+	new_node -> next = ptr;
+	ptr -> prev  = new_node;
+	
 	return start;
 }
 
