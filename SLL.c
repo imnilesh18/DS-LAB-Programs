@@ -25,10 +25,11 @@ struct node *create_ll(struct node *start){
 		}
 		else{
 			ptr = start;
-			while(ptr -> next!= NULL)
+			while(ptr -> next!= NULL){
 				ptr = ptr -> next;
-				ptr -> next = new_node;
-				new_node -> next = NULL;
+			}
+			ptr -> next = new_node;
+			new_node -> next = NULL;
 		}
 	printf("Enter the element : \n");
 	scanf("%d", &ele);
@@ -83,7 +84,6 @@ struct node *insert_beginning(struct node *start){
 	new_node = (struct node*)malloc(sizeof(struct node));
 	new_node -> data = ele;
 	
-	new_node ->data = ele;
 	new_node-> next = start;
 	start = new_node;
 	return start;
