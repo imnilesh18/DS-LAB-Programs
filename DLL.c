@@ -88,7 +88,7 @@ struct node *insert_in_between(struct node *start){
 	printf("After which value: ");
 	scanf("%d", &val);
 	while(preptr -> data!=val){
-        preptr = ptr;
+        	preptr = ptr;
 		ptr = ptr->next;
 	}
 	preptr -> next =new_node;
