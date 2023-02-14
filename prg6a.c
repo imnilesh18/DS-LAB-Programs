@@ -24,7 +24,6 @@ void push(){
 	printf("Enter the Area of Specialization : ");
 	scanf("%s", new_node -> area);
 	
-	new_node -> prev = NULL;
 	if(TOP == NULL){
 		new_node -> next = NULL;
 		new_node -> prev = NULL;
@@ -32,10 +31,12 @@ void push(){
 	}
 	else{
 		new_node -> prev = TOP;
+        	TOP -> next = new_node;
 		TOP = new_node;
 		new_node -> next = NULL; 
 	}
 }
+
 
 void pop(){
 	struct node *ptr;
@@ -58,9 +59,9 @@ void pop(){
 		printf("The data popped are : \n");
 		printf("%s\t%s\t%s\t%s\n", ptr -> id, ptr -> name, ptr -> dept, ptr -> area);
 		free(ptr);
-		
 	}
 }
+
 
 void display(){
 	if(TOP == NULL){
@@ -76,7 +77,6 @@ void display(){
 		}
 	}
 }
-
 
 
 int main(){
@@ -95,7 +95,7 @@ int main(){
 		case 4: exit(0);
 			break;
 		default: printf("\nInvalid Choice\n\n");
-        break;
+        		 break;
 		}
 	}
 	return 0;
