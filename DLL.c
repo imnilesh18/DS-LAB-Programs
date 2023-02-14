@@ -108,6 +108,18 @@ struct node *delete_beginning(struct node *start){
 	return start;
 }
 
+struct node *delete_end(struct node *start){
+	struct node *ptr, *preptr;
+	ptr = start;
+    while(ptr -> next != NULL){
+        preptr = ptr;
+        ptr = ptr->next;
+    }
+	preptr->next= NULL;
+    free(ptr);
+	return start;
+}
+
 struct node *delete_in_between(struct node *start){
 	int val;	
 	struct node *ptr, *temp;
@@ -149,7 +161,7 @@ struct node *display(struct node *start){
 int main(){
 	int choice;
 	while (choice>0){
-		printf("\n1.Create\n2.Insert At Beginning\n3.Insert At End\n4.Insert In Between\n5.Delete At Beginning\n6.Delete In Between\n7.Count\n8.Display\n9.Exit\n");
+		printf("\n1.Create\n2.Insert At Beginning\n3.Insert At End\n4.Insert In Between\n5.Delete At Beginning\n6.Delete End\n7.Delete In Between\n8.Count\n9.Display\n10.Exit\n");
 		printf("Enter your choice : \n");
 		scanf("%d", &choice);
 		switch(choice){
@@ -163,15 +175,19 @@ int main(){
 			break;
 		case 5: start = delete_beginning(start);
 			break;
-		case 6: start = delete_in_between(start);
+        case 6: start = delete_end(start);
+            break;
+		case 7: start = delete_in_between(start);
 			break;
-		case 7: start = counting(start);
+		case 8: start = counting(start);
 			break;
-		case 8: start = display(start);
+		case 9: start = display(start);
 			break;
-		case 9: exit(0);
+		case 10: exit(0);
 			break;
-		}
+		
+        }
+
 	}
 	return 0;
 }
