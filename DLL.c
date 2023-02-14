@@ -115,7 +115,7 @@ struct node *delete_end(struct node *start){
     	while(ptr -> next != NULL){
         	preptr = ptr;
         	ptr = ptr->next;
-    }
+    	}
 	preptr -> next = NULL;
    	free(ptr);
 	return start;
